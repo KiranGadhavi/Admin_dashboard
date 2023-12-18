@@ -1,0 +1,32 @@
+.dashboard{
+    overflow-y: auto;
+
+    .bar{
+    height: 4rem;
+    @include flex(row,unset);
+    padding: 0 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+
+>input {
+    margin-right: auto;
+    @include inputStyle(100%, 1rem)
+}
+> svg {
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+>img {
+    @include Square(2rem);
+    border-radius: 50%
+}
+}
+.widgetcontainer{
+    @include flex(row, space-between, stretch, 2rem);
+    padding: 2rem 2rem 2rem 0;
+    .widget{
+        width:16rem;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, );
+    }
+}
+}
