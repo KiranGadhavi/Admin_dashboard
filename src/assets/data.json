@@ -1,0 +1,31 @@
+{
+    "categories":[
+    {
+    "value":40,
+    "heading":"Laptops"
+},
+{
+    "value":100,
+    "heading":"Shoes"
+},
+{
+    "value":80,
+    "heading":"Cameras"
+},
+{
+    "value":60,
+    "heading":"Jeans"
+}
+],
+"transaction":[
+{
+    "id": "kjhhjgjh",
+    "amount": 4000
+},
+{
+    "id": "gth",
+    "amount": 1000
+}
+]
+
+}
