@@ -20,11 +20,35 @@
 "transaction":[
 {
     "id": "kjhhjgjh",
-    "amount": 4000
+    "amount": 4000,
+    "quantity": 4,
+    "discount": 900,
+    "status": "processing"
+
 },
 {
     "id": "gth",
-    "amount": 1000
+    "amount": 1000,
+    "quantity": 3,
+    "discount": 980,
+    "status": "processing"
+
+},
+{
+    "id": "okj",
+    "amount": 5100,
+    "quantity": 2,
+    "discount": 800,
+    "status": "processing"
+
+},
+{
+    "id": "lho",
+    "amount": 4000,
+    "quantity": 1,
+    "discount": 500,
+    "status": "processing"
+
 }
 ]
 
