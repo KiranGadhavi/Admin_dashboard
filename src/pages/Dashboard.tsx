@@ -59,10 +59,8 @@ function Dashboard() {
             <p>
              <BiMaleFemale/>
             </p>
-            <div>
-       <Table data={data.transaction}/>
-            </div>
           </div>
+          <Table data={data.transaction}/>
         </section>
       </main>
      
@@ -100,6 +98,8 @@ const WidgetItem = ({heading, value, percent, color, amount}:widgetItemProps) =>
     <span style={{color}}>{percent}%</span>
   </div>
 </article>
+
+
 interface CategoryItemProps{
   color:string;
   heading:string;

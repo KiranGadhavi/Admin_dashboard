@@ -1,5 +1,6 @@
 @import "mixin";
 @import "dashboard";
+@import "products";
 
 
 *{
@@ -108,6 +109,24 @@ a{
       &:last-child{
       border-right: none;
       }
+    }
+  }
+}
+
+.table-pagination{
+  @include flex;
+  padding: 2rem;
+  >button{
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 115, 255);
+    color: white;
+    &:disabled{
+      background-color: rgba(0, 115, 255, 0.1);
+      cursor: not-allowed;
     }
   }
 }

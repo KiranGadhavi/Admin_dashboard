@@ -65,7 +65,6 @@ export const BarChart=({horizontal = false,
             },
         },
         x: {
-            beginAtZero: true,
             grid:{
                 display: false,
             },
@@ -107,7 +106,8 @@ legend?:         boolean;
 offset?:         number[]
 }
 
-export const DoughnutChart = ({labels,data,backgroundColor,cutout,legend=true,offset}:DoughnutChartProps) => {
+export const DoughnutChart = ({labels,data,backgroundColor,
+             cutout,legend=true,offset}:DoughnutChartProps) => {
     const doughnutData: ChartData <"doughnut",number[],string> ={
 labels,
 datasets:[
