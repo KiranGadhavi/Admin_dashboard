@@ -44,60 +44,61 @@ const arr: DataType[] =[
     name: "Macbook",
     price: 232223,
     stock: 512,
-    action: <Link to="/admin/product/">Manage</Link>
+    action: <Link to="/admin/product/gyu">Manage</Link>
   },
   {
     photo:<img src={shoesImg} alt=""/>,
     name: "Shoes",
     price: 232223,
     stock: 112,
-    action: <Link to="/admin/product/">Manage</Link>
+    action: <Link to="/admin/product/dfv">Manage</Link>
   },
   {
     photo:<img src={shirtImg} alt=""/>,
     name: "Shirt",
     price: 232223,
     stock: 312,
-    action: <Link to="/admin/product/">Manage</Link>
+    action: <Link to="/admin/product/jkj">Manage</Link>
   },
   {
     photo:<img src={jeansImg} alt=""/>,
     name: "Jeans",
     price: 232223,
     stock: 102,
-    action: <Link to="/admin/product/">Manage</Link>
+    action: <Link to="/admin/product/mm">Manage</Link>
   },
   {
     photo:<img src={laptopImg}  alt=""/>,
     name: "Macbook",
     price: 232223,
     stock: 512,
-    action: <Link to="/admin/product/">Manage</Link>
+    action: <Link to="/admin/product/kk">Manage</Link>
   },
   {
     photo:<img src={shoesImg} alt=""/>,
     name: "Shoes",
     price: 232223,
     stock: 112,
-    action: <Link to="/admin/product/">Manage</Link>
+    action: <Link to="/admin/product/kj">Manage</Link>
   },
   {
     photo:<img src={shirtImg} alt=""/>,
     name: "Shirt",
     price: 232223,
     stock: 312,
-    action: <Link to="/admin/product/">Manage</Link>
+    action: <Link to="/admin/product/lop">Manage</Link>
   },
   {
     photo:<img src={jeansImg} alt=""/>,
     name: "Jeans",
     price: 232223,
     stock: 102,
-    action: <Link to="/admin/product/">Manage</Link>
+    action: <Link to="/admin/product/lop">Manage</Link>
   },
 ]
 const Product = () => {
   const [data] = useState<DataType[]>(arr)
+  
 const Table = useCallback(
   TableHOC<DataType>(
     columns,
@@ -111,7 +112,7 @@ const Table = useCallback(
     <div className="adminContainer">
     <AdminSidebar/>
     <main> {Table()}</main>
-  <Link to="/admin/prodeuct/new" className="create-product-btn">
+  <Link to="/admin/product/new" className="create-product-btn">
   <FaPlus/>
   </Link>
     </div>

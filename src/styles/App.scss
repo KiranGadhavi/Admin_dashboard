@@ -18,6 +18,9 @@ color: red;
 .green{
   color: rgb(6, 206, 40);
 }
+.red{
+  color: rgb(255, 0, 0);
+}
 .adminContainer{
   @include grid(1fr 4fr, 2rem);
   height: 100vh;
