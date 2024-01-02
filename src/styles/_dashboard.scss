@@ -22,7 +22,7 @@
 }
 .widgetContainer{
     @include flex(row, space-between, stretch, 2rem);
-    padding: 2rem 2rem 2rem 0;
+        padding: 2rem 2rem 2rem 0;
     .widget{
         width:16rem;
         background-color: white;
