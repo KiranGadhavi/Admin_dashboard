@@ -169,10 +169,10 @@ a{
   height: 100vh;
   @include flex;
   > div{
-  @include Square(10rem);
+  @include Square(6rem);
   border-radius: 50%;
-  border-top: 1rem solid rgb(43, 43, 43);
-  border-left: 1rem solid rgb(43, 43, 43);
+  border-top: 1rem solid rgb(113, 135, 64);
+  border-left: 1rem solid rgb(113, 135, 64);
   border-bottom: 1rem solid white;
   border-right: 1rem solid white;
   animation: loading-animation 0.5s linear infinite;
