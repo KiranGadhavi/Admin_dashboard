@@ -49,8 +49,8 @@ const Coupon = () => {
         className="dashboard-app-container"
         style={{ flex: 1, marginLeft: "200px", padding: "20px" }}
       >
-        <h1 style={{ color: "green" }}>Coupon Generator</h1>
         <section>
+          <h1>Coupon Generator</h1>
           <form className="coupon-form" onSubmit={submitHandler}>
             <input
               type="text"

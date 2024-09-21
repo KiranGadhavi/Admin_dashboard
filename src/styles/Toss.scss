@@ -11,18 +11,18 @@
 }
 
 .coin {
-  width: 5rem;
-  height: 15rem;
+  width: 6rem;
+  height: 6rem;
   position: relative;
   transform-style: preserve-3d;
   transition: transform 3s ease-out;
-  padding: 1rem 0;
+  //   margin: 1rem 0;
 }
 
 .coin-face {
   position: absolute;
-  width: 5rem;
-  height: 5rem;
+  width: 6rem;
+  height: 6rem;
   backface-visibility: hidden;
   border-radius: 50%;
   overflow: hidden;
@@ -37,8 +37,8 @@
   }
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 6rem;
+    height: 6rem;
     object-fit: cover;
     display: block;
   }
@@ -64,7 +64,7 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.1s;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
   &:hover {
@@ -83,22 +83,22 @@
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
+  margin-top: 1rem;
 }
 
 .stat-item {
   text-align: center;
-  width: 20%;
+  width: 40%;
 
   h3 {
     color: #2c3e50;
     font-size: 1rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.3rem;
   }
 
   p {
-    margin: 0.2rem 0;
+    font-size: 1rem;
+    margin: 0.3rem 0;
   }
 }
 
@@ -108,7 +108,7 @@
   background-color: #ecf0f1;
   border-radius: 4px;
   overflow: hidden;
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
 }
 
 .progress {
@@ -125,7 +125,7 @@
 }
 
 .total-flips {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   font-size: 1rem;
   font-weight: bold;
   color: #34495e;

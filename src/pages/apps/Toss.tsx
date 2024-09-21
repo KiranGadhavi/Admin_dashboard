@@ -54,14 +54,17 @@ const Toss: React.FC = () => {
     <div className="adminContainer">
       <AdminSidebar />
       <main className="dashboard-app-container">
-        <h1>Coin Toss Challenge</h1>
         <section className="toss-section">
-          <div className="coin" style={{ transform: `rotateY(${angle}deg)` }}>
-            <div className="coin-face heads">
-              <img src={headsImage} alt="Heads" />
-            </div>
-            <div className="coin-face tails">
-              <img src={tailsImage} alt="Tails" />
+          <h1>Coin Toss Challenge</h1>
+
+          <div className="coin-container">
+            <div className="coin" style={{ transform: `rotateY(${angle}deg)` }}>
+              <div className="coin-face heads">
+                <img src={headsImage} alt="Heads" />
+              </div>
+              <div className="coin-face tails">
+                <img src={tailsImage} alt="Tails" />
+              </div>
             </div>
           </div>
           <p className="coin-text">
