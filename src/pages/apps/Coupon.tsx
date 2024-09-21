@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import AdminSidebar from "../../components/AdminSidebar";
+
 const allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 const allNumbers = "1234567890";
 const allSymbols = "!@#%&^()_+*";
@@ -39,18 +40,17 @@ const Coupon = () => {
     }
     setCoupon(result);
   };
+
   useEffect(() => {
     setIsCopied(false);
   }, [coupon]);
+
   return (
-    <div className="adminContainer" style={{ display: "flex" }}>
+    <div className="adminContainer">
       <AdminSidebar />
-      <main
-        className="dashboard-app-container"
-        style={{ flex: 1, marginLeft: "200px", padding: "20px" }}
-      >
+      <main className="dashboard-app-container">
+        <h1>Coupon Generator</h1>
         <section>
-          <h1>Coupon Generator</h1>
           <form className="coupon-form" onSubmit={submitHandler}>
             <input
               type="text"
@@ -58,8 +58,7 @@ const Coupon = () => {
               value={prefix}
               onChange={(e) => setPrefix(e.target.value)}
               maxLength={size}
-            ></input>
-
+            />
             <input
               type="number"
               placeholder="Coupon Length"
@@ -67,7 +66,7 @@ const Coupon = () => {
               onChange={(e) => setSize(Number(e.target.value))}
               min={8}
               max={25}
-            ></input>
+            />
             <fieldset>
               <legend>Include</legend>
               <input

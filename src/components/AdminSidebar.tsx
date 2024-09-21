@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { IconType } from "react-icons";
 import {
   RiDashboardFill,
@@ -14,7 +15,6 @@ import {
   FaStopwatch,
   FaGamepad,
 } from "react-icons/fa";
-import { useEffect, useState, useCallback } from "react";
 import { HiMenuAlt4 } from "react-icons/hi";
 
 // Define menu items
@@ -51,11 +51,12 @@ interface LiProps {
   text: string;
   location: Location;
   Icon: IconType;
+  onClick: () => void;
 }
 
-const Li: React.FC<LiProps> = ({ url, text, location, Icon }) => (
+const Li: React.FC<LiProps> = ({ url, text, location, Icon, onClick }) => (
   <li className={location.pathname.includes(url) ? "active" : ""}>
-    <Link to={url}>
+    <Link to={url} onClick={onClick}>
       <Icon />
       {text}
     </Link>
@@ -64,41 +65,42 @@ const Li: React.FC<LiProps> = ({ url, text, location, Icon }) => (
 
 const AdminSidebar: React.FC = () => {
   const location = useLocation();
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [phoneActive, setPhoneActive] = useState<boolean>(
-    window.innerWidth < 1100
-  );
-
-  const resizeHandler = useCallback(() => {
-    setPhoneActive(window.innerWidth < 1100);
-  }, []);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1100);
 
   useEffect(() => {
-    window.addEventListener("resize", resizeHandler);
-    return () => {
-      window.removeEventListener("resize", resizeHandler);
-    };
-  }, [resizeHandler]);
-
-  const sidebarStyle = phoneActive
-    ? {
-        width: "20rem",
-        height: "100vh",
-        position: "fixed" as const,
-        top: 0,
-        left: showModal ? 0 : "-20rem",
-        transition: "all 0.5s",
+    const handleResize = () => {
+      const newIsMobile = window.innerWidth <= 1100;
+      setIsMobile(newIsMobile);
+      if (!newIsMobile) {
+        setShowSidebar(false);
       }
-    : {};
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleSidebar = () => setShowSidebar(!showSidebar);
+
+  const closeSidebar = () => {
+    if (isMobile) {
+      setShowSidebar(false);
+    }
+  };
 
   return (
     <>
-      {phoneActive && (
-        <button id="hamburger" onClick={() => setShowModal(true)}>
+      {isMobile && (
+        <button id="hamburger" onClick={toggleSidebar}>
           <HiMenuAlt4 />
         </button>
       )}
-      <aside style={sidebarStyle}>
+      <aside
+        className={`admin-sidebar ${
+          isMobile ? (showSidebar ? "show" : "hide") : ""
+        }`}
+      >
         <div className="logo-container">
           <div className="logo-icon">
             <div className="logo-square"></div>
@@ -110,16 +112,8 @@ const AdminSidebar: React.FC = () => {
         </div>
         {MENU_ITEMS.map((section, index) => (
           <div key={index} className="menu-section">
-            <h5
-              style={{
-                color: "#7f8c8d",
-                fontSize: "0.9rem",
-                marginBottom: "0.5rem",
-              }}
-            >
-              {section.title}
-            </h5>
-            <ul style={{ listStyle: "none", padding: 0 }}>
+            <h5>{section.title}</h5>
+            <ul>
               {section.items.map((item) => (
                 <Li
                   key={item.url}
@@ -127,17 +121,21 @@ const AdminSidebar: React.FC = () => {
                   text={item.text}
                   Icon={item.Icon}
                   location={location}
+                  onClick={closeSidebar}
                 />
               ))}
             </ul>
           </div>
         ))}
-        {phoneActive && (
-          <button id="close-sidebar" onClick={() => setShowModal(false)}>
+        {isMobile && (
+          <button id="close-sidebar" onClick={closeSidebar}>
             Close
           </button>
         )}
       </aside>
+      {isMobile && showSidebar && (
+        <div className="sidebar-overlay" onClick={closeSidebar} />
+      )}
     </>
   );
 };
