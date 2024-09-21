@@ -1,4 +1,3 @@
-//import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./styles/App.scss";
 import Loader from "./components/Loader";
@@ -31,9 +30,34 @@ function App() {
           <Route
             path="/"
             element={
-              <Link to="/admin/dashboard">
-                <button>Visit Dashboard</button>
-              </Link>
+              <div className="welcome-page">
+                <div className="welcome-content">
+                  <h1>Admin Control Center</h1>
+                  <p>
+                    Streamline operations and boost productivity with our
+                    comprehensive dashboard
+                  </p>
+                  <div className="feature-list">
+                    <div className="feature-item">
+                      <i className="fas fa-chart-line"></i>
+                      <span>Real-time Analytics</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="fas fa-users-cog"></i>
+                      <span>User Management</span>
+                    </div>
+                    <div className="feature-item">
+                      <i className="fas fa-tasks"></i>
+                      <span>Task Automation</span>
+                    </div>
+                  </div>
+                  <Link to="/admin/dashboard">
+                    <button className="dashboard-button">
+                      Access Dashboard
+                    </button>
+                  </Link>
+                </div>
+              </div>
             }
           />
           <Route path="/admin/dashboard" element={<Dashboard />} />
