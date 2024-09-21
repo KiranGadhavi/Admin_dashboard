@@ -5,66 +5,89 @@
 @import "dashboardapp";
 @import "mediaQuery";
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-a {
-text-decoration: none;
-color: red;
-}
-.purple{
-  color: rgb(22, 13, 159);
-}
-.green{
-  color: rgb(6, 206, 40);
-}
-.red{
-  color: rgb(255, 0, 0);
-}
-.adminContainer{
-  @include grid(1fr 4fr, 2rem);
-  height: 100vh;
-  background-color: rgb(247, 247, 247);
-> aside{
-  width: 40vh;
-  background-color: #fff;
-  padding: 1rem;
-  z-index: 10;
-  overflow-y: auto ;
-  &::-webkit-scrollbar{
-    display: none;
-  }
->div{
-  margin: 2rem 1rem;
-  >h5{
-    @include heading(2px);
-    opacity:0.8;
-    margin:1rem 0;
-  }
-  >ul{
-    @include flex(column,unset,unset, 0.5rem);
-    list-style: none;
-  
-  >li{
-    padding: 0.5rem 1rem;
-border-radius: 10px;
-a{
-  color: rgba(0,0,0,0.825);
-  @include flex(row,unset);
-}
-  }
-}
+
+body,
+html {
+  height: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
 }
+
+.purple {
+  color: rgb(22, 13, 159);
 }
-.table{
+.green {
+  color: rgb(6, 206, 40);
+}
+.red {
+  color: rgb(255, 0, 0);
+}
+
+.adminContainer {
+  height: 100vh;
+  background-color: rgb(247, 247, 247);
+  min-height: 100vh;
+  display: flex;
+
+  > aside {
+    width: 250px; // Changed from 40vh to a fixed width
+    background-color: #fff;
+    padding: 1rem;
+    z-index: 10;
+    overflow-y: auto;
+    height: 100vh; // Added to make sure sidebar takes full height
+    position: fixed; // Added to keep sidebar in place
+    left: 0;
+    top: 0;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > div {
+      margin: 2rem 1rem;
+      > h5 {
+        @include heading(2px);
+        opacity: 0.8;
+        margin: 1rem 0;
+      }
+      > ul {
+        @include flex(column, unset, unset, 0.5rem);
+        list-style: none;
+
+        > li {
+          padding: 0.5rem 1rem;
+          border-radius: 10px;
+          a {
+            color: rgba(0, 0, 0, 0.825);
+            @include flex(row, unset);
+          }
+        }
+      }
+    }
+  }
+
+  > main {
+    flex-grow: 1;
+    margin-left: 250px; // Should match the width of aside
+    padding: 2rem;
+    overflow-y: auto;
+  }
+}
+
+.table {
   border-collapse: collapse;
   width: 100%;
   th,
-  td{
+  td {
     padding: 8px;
     text-align: left;
     vertical-align: middle;
@@ -76,19 +99,19 @@ a{
     font-weight: 400;
     padding: 2rem 1rem;
   }
-  tbody{
-    tr{
-      box-shadow: 0px 1px 1px rgba(0,0,0,0.093);
+  tbody {
+    tr {
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.093);
     }
     td {
       padding: 1rem;
-      img{
+      img {
         width: 4rem;
         height: 4rem;
         object-fit: contain;
         border-radius: 10px;
       }
-      a{
+      a {
         text-decoration: none;
         background-color: rgb(44, 104, 255, 0.455);
         color: rgb(44, 104, 255);
@@ -104,24 +127,24 @@ a{
         background-color: transparent;
         cursor: pointer;
         color: rgb(255, 44, 44);
-        &:hover{
+        &:hover {
           opacity: 0.6;
         }
       }
-      &:first-child{
-      border-left: none;
+      &:first-child {
+        border-left: none;
       }
-      &:last-child{
-      border-right: none;
+      &:last-child {
+        border-right: none;
       }
     }
   }
 }
 
-.table-pagination{
+.table-pagination {
   @include flex;
   padding: 2rem;
-  >button{
+  > button {
     padding: 0.5rem 1rem;
     border: none;
     outline: none;
@@ -129,18 +152,18 @@ a{
     cursor: pointer;
     background-color: rgba(0, 115, 255);
     color: white;
-    &:disabled{
+    &:disabled {
       background-color: rgba(0, 115, 255, 0.1);
       cursor: not-allowed;
     }
   }
 }
 
-#hamburger{
+#hamburger {
   display: grid;
   place-items: center;
   @include Square(3rem);
-  border:none;
+  border: none;
   outline: none;
   cursor: pointer;
   color: rgba(44, 104, 255);
@@ -152,7 +175,7 @@ a{
   border-radius: 50%;
   z-index: 1;
 }
-#close-sidebar{
+#close-sidebar {
   width: 80%;
   margin: 1rem auto;
   display: block;
@@ -160,27 +183,26 @@ a{
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: rgb(168,2,2);
+  background-color: rgb(168, 2, 2);
   color: white;
   border-radius: 10px;
 }
-.loader{
+.loader {
   width: 100%;
   height: 100vh;
   @include flex;
-  > div{
-  @include Square(6rem);
-  border-radius: 50%;
-  border-top: 1rem solid rgb(113, 135, 64);
-  border-left: 1rem solid rgb(113, 135, 64);
-  border-bottom: 1rem solid white;
-  border-right: 1rem solid white;
-  animation: loading-animation 0.5s linear infinite;
+  > div {
+    @include Square(6rem);
+    border-radius: 50%;
+    border-top: 1rem solid rgb(113, 135, 64);
+    border-left: 1rem solid rgb(113, 135, 64);
+    border-bottom: 1rem solid white;
+    border-right: 1rem solid white;
+    animation: loading-animation 0.5s linear infinite;
+  }
 }
-}
-@keyframes loading-animation{
-  to{
+@keyframes loading-animation {
+  to {
     transform: rotateZ(360deg);
   }
 }
-
