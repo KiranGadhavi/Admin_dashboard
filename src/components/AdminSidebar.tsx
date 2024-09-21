@@ -54,19 +54,8 @@ interface LiProps {
 }
 
 const Li: React.FC<LiProps> = ({ url, text, location, Icon }) => (
-  <li
-    style={{
-      backgroundColor: location.pathname.includes(url)
-        ? "rgba(0,115,255,0.1)"
-        : "white",
-    }}
-  >
-    <Link
-      to={url}
-      style={{
-        color: location.pathname.includes(url) ? "rgb(0,115,255)" : "black",
-      }}
-    >
+  <li className={location.pathname.includes(url) ? "active" : ""}>
+    <Link to={url}>
       <Icon />
       {text}
     </Link>
@@ -110,11 +99,27 @@ const AdminSidebar: React.FC = () => {
         </button>
       )}
       <aside style={sidebarStyle}>
-        <h2>Logo.</h2>
+        <div className="logo-container">
+          <div className="logo-icon">
+            <div className="logo-square"></div>
+            <div className="logo-circle"></div>
+          </div>
+          <h2 className="logo-text">
+            Admin<span className="logo-highlight">Pro</span>
+          </h2>
+        </div>
         {MENU_ITEMS.map((section, index) => (
-          <div key={index}>
-            <h5>{section.title}</h5>
-            <ul>
+          <div key={index} className="menu-section">
+            <h5
+              style={{
+                color: "#7f8c8d",
+                fontSize: "0.9rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              {section.title}
+            </h5>
+            <ul style={{ listStyle: "none", padding: 0 }}>
               {section.items.map((item) => (
                 <Li
                   key={item.url}
