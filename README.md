@@ -54,7 +54,7 @@ npm install
 ```bash
 npm run dev
 ```
-5. Open your browser and visit [https://admin-dashboard-phi-sand.vercel.app/]to see the project.
+5. Open your browser and visit [https://admin-dashboard-phi-sand.vercel.app/] to see the project.
 
 
 
