@@ -6,7 +6,7 @@
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 <p align="center">
-  <a href="https://kirangadhavi.github.io/asmin_dashboard/">View Admin-dashboard</a></p>
+  <a href="https://admin-dashboard-phi-sand.vercel.app/">View Admin-dashboard</a></p>
 
 
 ## 🌍 Features
@@ -54,7 +54,7 @@ npm install
 ```bash
 npm run dev
 ```
-5. Open your browser and visit [https://kirangadhavi.github.io/asmin_dashboard/]to see the project.
+5. Open your browser and visit [https://admin-dashboard-phi-sand.vercel.app/]to see the project.
 
 
 
