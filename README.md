@@ -54,7 +54,7 @@ npm install
 ```bash
 npm run dev
 ```
-5. Open your browser and visit http://localhost:5173 to see the project.
+5. Open your browser and visit [https://kirangadhavi.github.io/asmin_dashboard/]to see the project.
 
 
 
